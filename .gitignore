@@ -1,5 +1,5 @@
 devel/
-./logs/
+logs/
 build/
 bin/
 lib/
@@ -51,5 +51,5 @@ qtcreator-*
 CATKIN_IGNORE
 
 # Additional custom ignore conents by Bure5kzam
-src/*
-!src/bure5kzam_example_package
+ros_ws/*
+!ros_ws/src/bure5kzam_example_package
