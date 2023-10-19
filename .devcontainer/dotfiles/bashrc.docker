@@ -1,0 +1,11 @@
+# Docker
+
+function dkbash() {
+	if [ -z "$1" ]; then
+		echo "Usage: dockerbash <container_name>"
+	else
+		docker exec -it "$1" /bin/bash
+	fi
+}
+
+alias dkcp=docker-compose

@@ -1,136 +1,32 @@
 {
-	// 이미지 사용 예시
-	// "image": "mcr.microsoft.com/devcontainers/typescript-node",
-	// "customizations": {
-	// 	"vscode": {
-	// 		"extensions": [
-	// 			"streetsidesoftware.code-spell-checker"
-	// 		]
-	// 	}
-	// },
-	// "forwardPorts": [@id:2gua.rainbow-brackets @id:ritwickdey.live-sass @id:shan.code-settings-sync @id:tht13.pythonsql
-	// 	3000
-	// ]
+	"name": "ros-vscode-container",
+
 	// 이미지 대상 지정
 	// 1. 사전 도커 이미지
-	"name": "ros-vscode-container",
-	"image": "ros:galactic",
-	// "postCreateCommand": "cp -rf /workspaces/.vscode.bashrc /~/",
-	// "mounts": [
-	// 	//"source=../.vscode/*,target=/.vscode/,type=bind,consistency=cached",
-	// 	{
-	// 		"source": "/home/ros/ros/script/ros-vscode/.vscode/",
-	// 		"target": "/~/.vscode/",
-	// 		"type": "bind",
-	// 		"consistency": "cached"
-	// 	}
-	// ],
-	// "workspaceMount": {
-	// 	"source": "${localWorkspaceFolder}",
-	// 	"target": "/workspace"
-	// 	// "type": "bind",
-	// 	// "consistency": "cached"
-	// },
+	// "image": "ros:galactic",
+	"build" : {
+		"dockerfile" : "./Dockerfile",
+		"context" : "./"
+	},
+
+
 	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
 	"workspaceFolder": "/workspace",
 	"customizations": {
 		// Configure properties specific to VS Code.
 		"vscode": {
 			// Set *default* container specific settings.json values on container create.
-			"settings": {
-				"python.autoComplete.extraPaths": [
-					"{PYTHONPATH}",
-					"/opt/ros/${ROS_DISTRO}/lib/python3.10/site-packages",
-					"/opt/ros/${OVERLAY_WS}/build/install/**"
-				],
-				"python.analysis.extraPaths": [
-					"/home/jwan/ros/workspaces/ros2_ws/install/turtlesim/local/lib/python3.10/dist-packages",
-					"/home/jwan/ros/workspaces/ros2_ws/build/launch_testing_examples",
-					"/home/jwan/ros/workspaces/ros2_ws/install/launch_testing_examples/lib/python3.10/site-packages",
-					"/home/jwan/ros/workspaces/ros2_ws/build/examples_rclpy_pointcloud_publisher",
-					"/home/jwan/ros/workspaces/ros2_ws/install/examples_rclpy_pointcloud_publisher/lib/python3.10/site-packages",
-					"/home/jwan/ros/workspaces/ros2_ws/build/examples_rclpy_minimal_subscriber",
-					"/home/jwan/ros/workspaces/ros2_ws/install/examples_rclpy_minimal_subscriber/lib/python3.10/site-packages",
-					"/home/jwan/ros/workspaces/ros2_ws/build/examples_rclpy_minimal_service",
-					"/home/jwan/ros/workspaces/ros2_ws/install/examples_rclpy_minimal_service/lib/python3.10/site-packages",
-					"/home/jwan/ros/workspaces/ros2_ws/build/examples_rclpy_minimal_publisher",
-					"/home/jwan/ros/workspaces/ros2_ws/install/examples_rclpy_minimal_publisher/lib/python3.10/site-packages",
-					"/home/jwan/ros/workspaces/ros2_ws/build/examples_rclpy_minimal_client",
-					"/home/jwan/ros/workspaces/ros2_ws/install/examples_rclpy_minimal_client/lib/python3.10/site-packages",
-					"/home/jwan/ros/workspaces/ros2_ws/build/examples_rclpy_minimal_action_server",
-					"/home/jwan/ros/workspaces/ros2_ws/install/examples_rclpy_minimal_action_server/lib/python3.10/site-packages",
-					"/home/jwan/ros/workspaces/ros2_ws/build/examples_rclpy_minimal_action_client",
-					"/home/jwan/ros/workspaces/ros2_ws/install/examples_rclpy_minimal_action_client/lib/python3.10/site-packages",
-					"/home/jwan/ros/workspaces/ros2_ws/build/examples_rclpy_guard_conditions",
-					"/home/jwan/ros/workspaces/ros2_ws/install/examples_rclpy_guard_conditions/lib/python3.10/site-packages",
-					"/home/jwan/ros/workspaces/ros2_ws/build/examples_rclpy_executors",
-					"/home/jwan/ros/workspaces/ros2_ws/install/examples_rclpy_executors/lib/python3.10/site-packages",
-					"/opt/ros/humble/lib/python3.10/site-packages",
-					"/opt/ros/humble/local/lib/python3.10/dist-packages"
-				],
-				"ros.isolateEnvironment": null,
-				"C_Cpp_Runner.msvcBatchPath": "",
-				"C_Cpp_Runner.cCompilerPath": "gcc",
-				"C_Cpp_Runner.cppCompilerPath": "g++",
-				"C_Cpp_Runner.debuggerPath": "gdb",
-				"C_Cpp_Runner.cStandard": "",
-				"C_Cpp_Runner.cppStandard": "",
-				"C_Cpp_Runner.useMsvc": false,
-				"C_Cpp_Runner.warnings": [
-					"-Wall",
-					"-Wextra",
-					"-Wpedantic",
-					"-Wshadow",
-					"-Wformat=2",
-					"-Wcast-align",
-					"-Wconversion",
-					"-Wsign-conversion",
-					"-Wnull-dereference"
-				],
-				"C_Cpp_Runner.msvcWarnings": [
-					"/W4",
-					"/permissive-",
-					"/w14242",
-					"/w14287",
-					"/w14296",
-					"/w14311",
-					"/w14826",
-					"/w44062",
-					"/w44242",
-					"/w14905",
-					"/w14906",
-					"/w14263",
-					"/w44265",
-					"/w14928"
-				],
-				"C_Cpp_Runner.enableWarnings": true,
-				"C_Cpp_Runner.warningsAsError": false,
-				"C_Cpp_Runner.compilerArgs": [],
-				"C_Cpp_Runner.linkerArgs": [],
-				"C_Cpp_Runner.includePaths": [],
-				"C_Cpp_Runner.includeSearch": [
-					"*",
-					"**/*"
-				],
-				"C_Cpp_Runner.excludeSearch": [
-					"**/build",
-					"**/build/**",
-					"**/.*",
-					"**/.*/**",
-					"**/.vscode",
-					"**/.vscode/**"
-				],
-				"C_Cpp_Runner.useAddressSanitizer": false,
-				"C_Cpp_Runner.useUndefinedSanitizer": false,
-				"C_Cpp_Runner.useLeakSanitizer": false,
-				"C_Cpp_Runner.showCompilationTime": false,
-				"C_Cpp_Runner.useLinkTimeOptimization": false,
-				"C_Cpp_Runner.msvcSecureNoWarnings": false
-			},
+			"settings": {},
 			"extensions": [
 				"ms-vscode.cmake-tools",
-				"twxs.cmake"
-			],
+				"twxs.cmake",
+				"sweilz.ros-snippets",
+				"deitry.colcon-helper"
+			]
 		}
-	}
+	},
+	"postStartCommand" : [
+		//"ls -al /workspace/.devcontainer/dotfiles/dotfile_symlink_setting.sh"
+		//"/workspace/.devcontainer/dotfiles/dotfile_symlink_setting.sh"
+	]
 }
