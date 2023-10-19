@@ -6,10 +6,13 @@
 	// "image": "ros:galactic",
 	"build" : {
 		"dockerfile" : "./Dockerfile",
-		"context" : "./"
+		"context" : "./",
+		"args": {
+			"FROM_IMAGE" : "ros:humble",
+			"OriginalWorkspacePath" : "/humble"
+		},
+		"target": "dependencies"
 	},
-
-
 	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
 	"workspaceFolder": "/workspace",
 	"customizations": {
@@ -21,7 +24,10 @@
 				"ms-vscode.cmake-tools",
 				"twxs.cmake",
 				"sweilz.ros-snippets",
-				"deitry.colcon-helper"
+				"deitry.colcon-helper",
+				"smilerobotics.urdf",		// urdf 파일 곤련 플러그인
+				"sweilz.ros-snippets",
+				"eamodio.gitlens"
 			]
 		}
 	},
