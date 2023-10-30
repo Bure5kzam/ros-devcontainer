@@ -8,7 +8,7 @@
 
 dir=/workspace/.devcontainer/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc bashrc.docker bashrc.colcon"    # list of files/folders to symlink in homedir
+files="bashrc bashrc_docker bashrc_colcon bashrc_ros"    # list of files/folders to symlink in homedir
 
 ##########
 

@@ -8,4 +8,5 @@ function dkbash() {
 	fi
 }
 
-alias dkcp=docker-compose
+# Docker compose
+alias dkc=docker-compose

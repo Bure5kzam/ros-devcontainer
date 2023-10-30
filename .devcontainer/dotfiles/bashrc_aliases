@@ -1,2 +1,2 @@
-source ~/.bashrc.docker
-source ~/.bashrc.colcon
+source ~/.bashrc_docker
+source ~/.bashrc_colcon
