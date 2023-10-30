@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../../workspaces/test_ws"
+		}
+	],
+	"settings": {
+		"python.autoComplete.extraPaths": [
+			"/opt/ros/galactic/lib/python3.8/site-packages"
+		],
+		"python.analysis.extraPaths": [
+			"/opt/ros/galactic/lib/python3.8/site-packages"
+		],
+		// ros extension
+		"ros.distro": "humble",
+		"ros.rosSetupScript": "/home/jwan/ros/workspaces/test_ws/install/setup.bash",
+		"ros.isolateEnvironment": "false"
+	}
+}
