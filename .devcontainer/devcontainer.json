@@ -10,8 +10,7 @@
 		"args": {
 			"FROM_IMAGE" : "ros:humble",
 			"OriginalWorkspacePath" : "/humble"
-		},
-		"target": "dependencies"
+		}
 	},
 	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
 	"workspaceFolder": "/workspace",
