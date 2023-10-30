@@ -115,9 +115,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-export HOST_UID=998
-export HOST_GID=998
-
-source ~/.bashrc.docker
-source ~/.bashrc.colcon
