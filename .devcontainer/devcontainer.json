@@ -1,9 +1,6 @@
+// vscode extension 설정버전
 {
 	"name": "ros-vscode-container",
-
-	// 이미지 대상 지정
-	// 1. 사전 도커 이미지
-	// "image": "ros:galactic",
 	"build" : {
 		"dockerfile" : "./Dockerfile",
 		"context" : "./",
@@ -11,27 +8,28 @@
 			"FROM_IMAGE" : "ros:humble",
 			"OriginalWorkspacePath" : "/humble"
 		}
+		// "dockerfile" : "./Dockerfile.vscode-extension",
+		// "context" : "../",
 	},
-	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
-	"workspaceFolder": "/workspace",
+	"workspaceFolder": "/",
 	"customizations": {
-		// Configure properties specific to VS Code.
 		"vscode": {
-			// Set *default* container specific settings.json values on container create.
-			"settings": {},
-			"extensions": [
-				"ms-vscode.cmake-tools",
-				"twxs.cmake",
-				"sweilz.ros-snippets",
-				"deitry.colcon-helper",
-				"smilerobotics.urdf",		// urdf 파일 곤련 플러그인
-				"sweilz.ros-snippets",
-				"eamodio.gitlens"
-			]
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "bash",
+                "terminal.integrated.profiles.linux": { "bash": { "path": "/bin/bash" } }
+			},
+			// "extensions": [
+			// 	"ms-vscode.cmake-tools",
+			// 	"twxs.cmake",
+			// 	"sweilz.ros-snippets",
+			// 	"deitry.colcon-helper",
+			// 	"smilerobotics.urdf",		// urdf 파일 곤련 플러그인
+			// 	"sweilz.ros-snippets",
+			// 	"eamodio.gitlens"
+			// ]
 		}
 	},
-	"postStartCommand" : [
-		//"ls -al /workspace/.devcontainer/dotfiles/dotfile_symlink_setting.sh"
-		//"/workspace/.devcontainer/dotfiles/dotfile_symlink_setting.sh"
-	]
+	// install vscode extension 
+	"onCreateCommand": ["/bin/bash", "-c", "(echo 'export PATH=`echo ~/.vscode-server/bin/*/bin`:$PATH'; echo 'export VSCODE_IPC_HOOK_CLI=`echo /tmp/vscode-ipc-*.sock`')", ">>", "/root/.bashrc"],
+	"postCreateCommand" :["/bin/bash", "-c", "printenv"]
 }

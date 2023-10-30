@@ -1,0 +1,31 @@
+
+{
+	"name": "ros-vscode-container",
+	"build" : {
+		"dockerfile" : "./Dockerfile.vscode-extensions",
+		"context" : "../",
+		"args": {
+			"FROM_IMAGE" : "ros:humble",
+			"OriginalWorkspacePath" : "/home/ros/ros/workspaces/ros_ws",
+			"OVERLAY_WS" : "/opt/ros/overlay_ws"
+		},
+		"target": "builder"
+	},
+	"workspaceFolder": "/opt/ros/overlay_ws",
+	"customizations": {
+		"vscode": {
+			"settings": {},
+			"extensions": [
+				"ms-vscode.cmake-tools",
+				"twxs.cmake",
+				"sweilz.ros-snippets",
+				"deitry.colcon-helper",
+				"smilerobotics.urdf",
+				"sweilz.ros-snippets",
+				"eamodio.gitlens"
+			]
+		}
+	},
+	"postStartCommand" : [
+	]
+}

@@ -51,5 +51,5 @@ qtcreator-*
 CATKIN_IGNORE
 
 # Additional custom ignore conents by Bure5kzam
-ros_ws/*
+## ros_ws/* // 검색할 수 없어지는 문제가 있어 수정
 !ros_ws/src/bure5kzam_example_package

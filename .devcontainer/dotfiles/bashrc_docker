@@ -1,4 +1,4 @@
-# Docker
+# docker
 
 function dkbash() {
 	if [ -z "$1" ]; then
