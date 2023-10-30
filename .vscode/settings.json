@@ -1,0 +1,5 @@
+{
+  "ros.distro": "foxy",
+  "ros.rosSetupScript": "/opt/ros/foxy/install/setup.bash",
+  "ros.isolateEnvironment": "false"
+}
